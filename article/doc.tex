@@ -1,0 +1,59 @@
+\documentclass{myart}
+
+\begin{document}
+
+%\newpage
+\renewcommand\figurename{图} %使用中文图
+\renewcommand\tablename{表} %使用中文表
+\renewcommand{\contentsname}{目录} %使用中文目录
+\renewcommand{\refname}{参考文献} %使用中文目录
+%\pagestyle{plain}  %设置页面格式为没有页眉，页码显示在页脚中部
+\thispagestyle{empty}
+
+\title{轴系设计}
+% 如果标题一行写不下，就写成两行，在下面的命令里写第二行，不需要两行则注释掉
+%\titletl{第一版}
+
+%英文题目，英文题目如果没有可以注释掉
+%\Etitle{\LaTeX{} Template}
+% 如果一行写不下，同中文题目设定，一行写不下则写两行，不需要就注释掉
+%\Etitletl{The Second Edition}
+% 作者
+\author{帅青}
+\studentnum{3150105533}
+% 导师
+\supervisor{顾大强}
+% 专业名称
+\major{机械电子工程}
+% 所属学院
+\institute{机械工程学院}
+% 生成封面
+\makeCoverPage
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文内容部分开始
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\pagenumbering{arabic}
+\tableofcontents
+
+\newpage
+\pagestyle{fancy} 
+% 设置页眉页脚
+
+\lhead{姓名：帅青}
+\chead{学号：3150105533}
+\rhead{班级：机电1503}
+
+\input{./main/design.tex}
+
+
+
+\addcontentsline{toc}{section}{参考文献}
+\input{./main/bib.tex}
+ 
+
+
+
+\end{document}

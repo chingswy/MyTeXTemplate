@@ -1,0 +1,23 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}问题描述}{2}{section.1}
+\contentsline {section}{\numberline {2}轴的设计}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}选择轴的材料}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}按转矩估算轴的最小直径}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}轴的结构设计}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}计算齿轮受力}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}计算轴承反力}{4}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}绘制弯矩图}{5}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}绘制扭矩图}{7}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}绘制当量弯矩图}{7}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}分别计算截面的直径}{8}{subsection.2.9}
+\contentsline {section}{\numberline {3}强度校核}{8}{section.3}
+\contentsline {section}{\numberline {4}其他零件}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}轴承选择}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}套筒}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}键}{10}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}轴承寿命}{11}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}计算轴承受力}{11}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}计算当量载荷}{12}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}计算$L_h$}{12}{subsubsection.4.4.3}
+\contentsline {section}{\numberline {5}装配结构草图}{12}{section.5}
+\contentsline {section}{参考文献}{12}{section.5}

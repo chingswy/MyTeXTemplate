@@ -1,0 +1,142 @@
+\documentclass{myrep}
+\CTEXsetup[name={,}, format={\flushleft},number=\chinese{section},nameformat={\bfseries\zihao{3}},titleformat={\bfseries\zihao{3}},beforeskip={1em},afterskip={1em}]{section}
+
+\usepackage{pythonhighlight}
+\newfontfamily\hand{Bradley Hand ITC}% 手写字体
+%\newfontfamily\hand{MV Boli}
+%\usepackage{mathpazo} % 数学的手写字体
+%\usefonttheme[onlymath]{serif}
+%\usepackage{pxfonts}
+%\usefonttheme[onlymath]{Bradley Hand ITC}
+\begin{document}
+
+%
+%\newpage
+\renewcommand\figurename{图} %使用中文图
+\renewcommand\tablename{表} %使用中文表
+%\pagestyle{plain}  %设置页面格式为没有页眉，页码显示在页脚中部
+\thispagestyle{empty}
+
+\title{{\heiti\zihao{1}机电控制第二次作业}}
+
+% 作者
+\author{{\fangsong\zihao{4}帅青，3150105533}}
+\date{\today}
+\vspace{-50pt}
+\maketitle
+%\vspace{-30pt}
+%%%%%%%%%t%%%%%%%%%%%%%%%%%%%%%
+%% 正文内容部分开始
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\pagestyle{plain}
+\pagestyle{fancy} 
+% 设置页眉页脚
+
+\lhead{姓名：帅青}
+\chead{学号：3150105533}
+\rhead{班级：机电1503}
+
+\section*{Problem 1:}
+\begin{equation}
+	G(s) = \dfrac{1}{(s+a)^2}
+\end{equation}
+计算其Z变换
+\begin{equation}
+	G(z) = \dfrac{z-1}{z}Z\left[\dfrac{G_p(s)}{s}\right] = \dfrac{z-1}{z}Z\left[\dfrac{1}{s(s+a)^2}\right]
+\end{equation}
+使用ztrans函数计算
+\begin{align}
+	G(z) & = 
+	\dfrac{z-1}{z}\left(\frac{z}{a^2\, \left(z - 1\right)} - \frac{z}{a^2\, \left(z - \mathrm{e}^{T\, a}\right)} + \frac{T\, z\, \mathrm{e}^{T\, a}}{a\, {\left(z - \mathrm{e}^{T\, a}\right)}^2}\right)		\\
+	& = (z-1)\left(\frac{1}{a^2\, \left(z - 1\right)} - \frac{1}{a^2\, \left(z - \mathrm{e}^{T\, a}\right)} + \frac{T\, \mathrm{e}^{T\, a}}{a\, {\left(z - \mathrm{e}^{T\, a}\right)}^2}\right)
+\end{align}
+
+\section*{Problem 2}
+化简系统方框图，其形式为
+\midpic{xits.png}{系统方框图}
+其中，
+\begin{equation}
+	G(s) = (1 + \dfrac{1}{Ts})(G_{ZOH}(s))
+\end{equation}
+\begin{equation}
+	H(s) = \dfrac{\dfrac{1}{Ts}}{1+\dfrac{1}{Ts}} = \dfrac{1}{Ts + 1}
+\end{equation}
+\begin{align}
+	E(s) & = R^*(s) - H(s)Y(s)\\
+	Y(s) & = G(s)\cdot E^*(s)\\
+	\Rightarrow E(s) & = R^*(s) - H(s)G(s)\cdot E^*(s)\\
+	\Rightarrow E^*(s) &= R^*(s) - HG^*(s)E^*(s) \\
+	\Rightarrow E^*(s) &= \dfrac{1}{1 + HG^*(s)}\cdot R^*(s)
+\end{align}
+则系统的传递函数为
+\begin{align}
+	G_{FOH}(s) = \dfrac{Y(s)}{R^*(s)} = \frac{G(s)}{1 + HG^*(s)}
+\end{align}
+其中，
+\begin{equation}
+	G(s) = (1 + \dfrac{1}{Ts})\dfrac{1-e^{-Ts}}{s}
+\end{equation}
+通过z变换计算$HG^*(s)$，
+\begin{align}
+	HG^*(s) & = HG(z) = Z\left[G(s)H(s)\right] = \dfrac{z-1}{z}Z\left[(1 + \dfrac{1}{Ts})\dfrac{1}{Ts + 1} \dfrac{1}{s}\right]\\
+	& = \dfrac{z-1}{z}\cdot \dfrac{z}{(z-1)^2} = \dfrac{1}{z-1} = \dfrac{1}{e^{Ts}-1}
+\end{align}
+则传递函数为
+\begin{align}
+	G_{FOH}(s) &= \dfrac{G(s)}{1 + HG^*(s)} = \dfrac{(1 + \dfrac{1}{Ts})\dfrac{1-e^{-Ts}}{s}}{1 + \dfrac{1}{e^{Ts}-1}} =  \dfrac{(1 + \dfrac{1}{Ts})\dfrac{(1-e^{-Ts})(e^{Ts}-1)}{s}}{(e^{Ts}-1)+1}\\
+	& = (1-e^{-Ts})^2\left(\frac{Ts+1}{Ts^2}\right)
+\end{align}
+
+
+% 则有系统的传递函数为
+% \begin{align}
+% 	\dfrac{Y(z)}{R(z)} & = \dfrac{G(z)}{1+HG(z)} = \dfrac{Z\left[ (1 + \dfrac{1}{Ts})(G_{ZOH}(s))\right]}{1+Z\left[\dfrac{1}{Ts + 1}(1 + \dfrac{1}{Ts})(G_{ZOH}(s))\right]}\\
+% 	& = \dfrac{\dfrac{z-1}{z}Z\left[\dfrac{1}{s} + \dfrac{1}{Ts^2}\right]}{1+\dfrac{z-1}{z}Z\left[\dfrac{1}{s(Ts + 1)}(1 + \dfrac{1}{Ts})\right]} = \dfrac{\dfrac{z-1}{z}(\dfrac{z^2}{(z-1)^2})}{1+\dfrac{z-1}{z}\dfrac{z}{{\left(z - 1\right)}^2}} \\
+% 	& = \dfrac{\dfrac{z}{z-1}}{1+\dfrac{1}{z-1}} = 1????
+% \end{align}
+
+%\section*{附录}
+
+\section*{Problem 3}
+\subsection*{(a)}
+FOH系统传递函数为
+\begin{equation}
+	G_{FOH}(s) = (1-e^{-Ts})^2\left(\frac{Ts+1}{Ts^2}\right)
+\end{equation}
+傅里叶变换得
+\begin{equation}
+	G_{FOH}(j\omega) = (1-e^{-Tj\omega})^2\left(\frac{Tj\omega+1}{T(j\omega)^2}\right)
+\end{equation}
+其中，
+\begin{align}
+	(1-e^{-Tj\omega})^2 &= 1+e^{-2Tj\omega} - 2e^{-Tj\omega} = e^{-Tj\omega}(e^{Tj\omega}+e^{-Tj\omega}-2)\\
+	& = e^{-Tj\omega}(\cos T\omega + j\sin T\omega +\cos T\omega - j\sin T\omega-2)\\
+	& = e^{-Tj\omega}(2\cos T\omega-2) = -e^{-Tj\omega}4\sin^2(T\omega/2)
+\end{align}
+因此，
+\begin{equation}
+	G_{FOH}(j\omega) = -e^{-Tj\omega}4\sin^2(T\omega/2)\left(\frac{Tj\omega+1}{T(j\omega)^2}\right) = \dfrac{Tj\omega+1}{T}e^{-Tj\omega}\dfrac{4\sin^2(T\omega/2)}{\omega^2}
+\end{equation}
+
+\subsection*{(b)}
+取采样周期T = 1s，绘制伯德图。
+\maxpic{bodefig.eps}{bode图}
+
+\section*{Problem 5}
+\subsection*{(a)}
+\begin{equation}
+	G(z) = \dfrac{z-1}{z}Z\left[\dfrac{1}{s^2}e^{-0.4s}\right] = \dfrac{z-1}{z}\dfrac{3z+2}{5(z-1)^2} = \dfrac{3z+2}{5z(z-1)}
+\end{equation}
+\subsection*{(b)}
+延迟环节$T_D = 0.4s$，由于
+\begin{equation}
+	T_D = nT + T_L
+\end{equation}
+
+系统的阶数为n+2 = 5，因此n=3，则
+\begin{equation}
+	\frac{1}{10} \leq T \leq \frac{2}{15}
+\end{equation}
+
+%\inputpython{./code/FaceRecognition.py}{1}{130}
+\end{document}
