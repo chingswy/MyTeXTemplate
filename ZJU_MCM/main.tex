@@ -1,0 +1,73 @@
+\documentclass{zjumcm}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+\newcommand\maketitlepage{
+    \begin{titlepage} 
+        \begin{center}
+    
+        \vspace{20mm}
+        \zihao{-0}\heiti{浙江大学第十六届}\\[0.1cm]
+        \zihao{-0}\heiti{大学生数学建模竞赛}\\[0.5cm]
+        \zihao{3}{2018 年 5 月 2 日-5 月 12 日}\\[1cm]
+        % \vspace{\fill}
+    \setlength{\extrarowheight}{3mm}
+    {\songti\zihao{2}	
+    \begin{tabular}{rc}
+        {\makebox[2\ccwd][s]{题目}}& \makebox[8em]{\songti A \ \ \ \ \  B}\\
+        {\makebox[2\ccwd][s]{编号}}& \underline{\makebox[8em]{\songti 887}}\\
+    \end{tabular}  
+     }\\[2cm]
+
+     \setlength{\extrarowheight}{0mm}
+    {\songti\zihao{4}	
+    \begin{tabular}{|p{1.8cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
+        \hline
+         & 参赛队员 1 & 参赛队员 1 & 参赛队员 1\\\hline
+        \textbf{姓名} & & & \\\hline
+        \textbf{学号} & & & \\\hline
+        \textbf{院系} & & & \\\hline
+        \textbf{专业} & & & \\\hline
+        \textbf{手机} & & & \\\hline
+        \textbf{Email} & & & \\\hline
+    \end{tabular}  
+     }\\[2cm]
+
+    \vspace{\fill} 
+    \zihao{2}\songti
+    \textbf{浙江大学本科生院}\\
+    \textbf{浙江大学数学建模实践基地}
+    
+    % 完整版实验报告请点击：\href{http://v.youku.com/}{完整实验报告} 
+        \end{center}	
+    \end{titlepage}
+}
+ 
+\graphicspath{{./pic/}} % 图片放在pic目录下
+
+\begin{document}
+\renewcommand\figurename{图} %使用中文图
+\renewcommand\tablename{表} %使用中文表
+\renewcommand{\contentsname}{目录} %使用中文目录
+\renewcommand{\refname}{参考文献} %使用中文目录
+
+    \maketitlepage
+    \pagestyle{empty}
+
+    \begin{abstract}{关键词1;关键词2}
+
+        这里是摘要
+    \end{abstract}
+    \newpage
+    \pagestyle{plain}
+
+    \input{./doc/restatement.tex}
+    \input{./doc/analyze.tex}
+    \input{./doc/question1.tex} 
+    \input{./doc/question2.tex}
+    \input{./doc/question3.tex}
+    \input{./doc/evaluate.tex}
+
+    \input{./doc/bib.tex}
+    \input{./doc/appendix.tex}
+    
+\end{document}

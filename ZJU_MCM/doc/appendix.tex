@@ -1,0 +1,14 @@
+\newpage
+\section*{附录}
+
+\begin{lstlisting}[language=matlab]      %%其中为matlab代码
+    %%%100points
+    clear all;clc;
+    Fs = 10;                 % Sampling frequency
+    T = 1/Fs;                % Sample time
+    L = 100;                 % Length of signal 100
+    t = (0:L-1)*T;           % Time vector
+    % Generate the signal
+    x=2.6*sin(4.2*pi*t+unifrnd(0,4*pi));
+    y=2.1*sin(4.4*pi*t+unifrnd(-pi,pi));
+\end{lstlisting}
